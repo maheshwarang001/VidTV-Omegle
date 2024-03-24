@@ -12,9 +12,9 @@ export const useSocket = () => {
 export const SocketProvider = ({ ipKey, topic_talk, children }) => {
   
 
-  if (ipKeyval === "undefined" || ipKeyval === null || topic === "undefined" || topic === null || topic === '') {
-    ipKeyval = Cookies.get('cookie-ip');
-    topic = Cookies.get('cookie-topic');
+  if (ipKey === "undefined" || ipKey === null || topic_talk === "undefined" || topic_talk === null || topic_talk === '') {
+    ipKey = Cookies.get('cookie-ip');
+    topic_talk = Cookies.get('cookie-topic');
   }
   console.log("socketprovider",topic_talk);
   const url = `wss://hammerhead-app-yjxlc.ondigitalocean.app?ip=${ipKey}&topic=${topic_talk}`;
