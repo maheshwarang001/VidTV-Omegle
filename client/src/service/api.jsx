@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getIP = async () => {
     try {
-        const response = await axios.get('http://localhost:5500/get/ip');
+        const response = await axios.get('https://hammerhead-app-yjxlc.ondigitalocean.app/get/ip');
         console.log("IP Data", response.data);
 
         if (response.data === null || response.data === undefined) {
