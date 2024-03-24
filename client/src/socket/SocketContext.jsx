@@ -10,7 +10,7 @@ export const useSocket = () => {
 
 export const SocketProvider = ({ ipKey, topic_talk, children }) => {
     console.log("socketprovider",topic_talk);
-  const url = `ws://localhost:5500/call/connect?ip=${ipKey}&topic=${topic_talk}`;
+  const url = `wss://hammerhead-app-yjxlc.ondigitalocean.app?ip=${ipKey}&topic=${topic_talk}`;
 
   const socket = useMemo(() => new WebSocket(url), [url]);
 
