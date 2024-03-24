@@ -1,7 +1,7 @@
 
 import { MongoClient } from "mongodb";
 
-const DATABASE_URL = ''
+const DATABASE_URL = 'mongodb+srv://london123:london123@cluster0.n56wfu1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 export default async function mongodbUpdate(ipAddress) {
     console.log('DATABASE_URL:', DATABASE_URL); // Log the DATABASE_URL
