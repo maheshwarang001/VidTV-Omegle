@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo, useCallback } from "react";
+import Cookies from 'js-cookie';
 
 
 const SocketContext = createContext(null);
@@ -9,7 +10,13 @@ export const useSocket = () => {
 };
 
 export const SocketProvider = ({ ipKey, topic_talk, children }) => {
-    console.log("socketprovider",topic_talk);
+  
+
+  if (ipKeyval === "undefined" || ipKeyval === null || topic === "undefined" || topic === null || topic === '') {
+    ipKeyval = Cookies.get('cookie-ip');
+    topic = Cookies.get('cookie-topic');
+  }
+  console.log("socketprovider",topic_talk);
   const url = `wss://hammerhead-app-yjxlc.ondigitalocean.app?ip=${ipKey}&topic=${topic_talk}`;
 
   const socket = useMemo(() => new WebSocket(url), [url]);
