@@ -23,7 +23,7 @@ function LobbyWithSocket() {
   console.log("Route-key", ipKeyval);
   console.log("Route-Topic", topic);
 
-  if (ipKeyval == "undefined" || ipKeyval == null || topic == "undefined" || topic == null || topic == '') {
+  if (ipKeyval === "undefined" || ipKeyval === null || topic === "undefined" || topic === null || topic === '') {
     return <Home />;
   }
 
