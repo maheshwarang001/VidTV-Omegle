@@ -22,6 +22,13 @@ app.get('/',(req,res)=>{
 app.set('trust proxy', true);
 
 // HTTP REQUEST FOR IP 
+function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
 
 app.get('/get/ip', async (req, res) => {
     const remoteAddress = req.socket.remoteAddress;
@@ -29,8 +36,8 @@ app.get('/get/ip', async (req, res) => {
     // Push to DB
     await mongodbUpdate(remoteAddress);
 
-    const date = Date.now().toString();
-    const unique = remoteAddress + date;
+    const uuid = generateUUID();
+    const unique = remoteAddress + uuid;
 
     const hashed = crypto.createHash('sha1').update(unique).digest('hex');
     res.send({ "remoteAddress": hashed });
