@@ -70,7 +70,8 @@ wss.on('connection', (ws, req) => {
                 console.log("set added", ip);
                 ipSet.add(ip);
             } else {
-                ws.close();
+                // ipSet.delete(ip);
+                // ws.close();
             }
         } else {
             // Handle the case where the topic is not in the map
