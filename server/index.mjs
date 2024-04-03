@@ -66,8 +66,8 @@ wss.on('connection', (ws, req) => {
         // TAG -> IP
         if (map.has(topic)) {
             const ipSet = map.get(topic);
-            console.log("set added", ip);
-            ipSet.add(ip);
+            // console.log("set added", ip);
+            // ipSet.add(ip);
             if (!ipSet.has(ip)) {
                 console.log("set added", ip);
                 ipSet.add(ip);
