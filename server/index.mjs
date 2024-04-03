@@ -68,13 +68,13 @@ wss.on('connection', (ws, req) => {
             const ipSet = map.get(topic);
             console.log("set added", ip);
             ipSet.add(ip);
-            // if (!ipSet.has(ip)) {
-            //     console.log("set added", ip);
-            //     ipSet.add(ip);
-            // } else {
-            //     // ipSet.delete(ip);
-            //     // ws.close();
-            // }
+            if (!ipSet.has(ip)) {
+                console.log("set added", ip);
+                ipSet.add(ip);
+            } else {
+                // ipSet.delete(ip);
+                // ws.close();
+            }
         } else {
             // Handle the case where the topic is not in the map
             // You might want to create a new Set for the topic and add the IP
