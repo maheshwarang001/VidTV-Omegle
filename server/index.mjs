@@ -74,6 +74,7 @@ wss.on('connection', (ws, req) => {
             }
             else{
                 console.log("Already Exist");
+                ws.close();
             }
             // } else {
             //     ipSet.delete(ip);
